@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="search-bar">
+        <form method="post" action="/find">
+          <input
+            type="text"
+            placeholder="Enter city name"
+            name="place"
+            id="city"
+            required
+          />
+          <button id="submitbutton" type="submit">Search</button>
+        </form>
+      </div>
+
+      <h1 class="city-name"><%= weather.name %></h1>
+      <div class="weather-description"><%= weather.weather[0].main%></div>
+
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-value"><%= weather.main.humidity%>%</div>
+          <div class="metric-label">Humidity</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value"><%= weather.wind.speed%>km/h</div>
+          <div class="metric-label">Wind Speed</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value"><%= weather.main.pressure%>hPa</div>
+          <div class="metric-label">Pressure</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value"><%= weather.visibility%> m</div>
+          <div class="metric-label">Visibility</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value"><%= weather.main.feels_like%>°C</div>
+          <div class="metric-label">Feels Like</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
